@@ -1,0 +1,43 @@
+@use 'variables';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: variables.$ff;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-areas:
+        'header'
+        'imagen'
+        'articulo'
+        'clients';
+    overflow: hidden;
+
+    @media #{variables.$desktop} {
+        grid-template-areas:
+            'header header'
+            'articulo imagen'
+            'clients imagen';
+    }
+}
+
+.blur {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.623);
+    display: none;
+}

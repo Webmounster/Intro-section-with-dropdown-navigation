@@ -1,0 +1,57 @@
+@use 'variables';
+.articulo {
+    margin-top: -50px;
+    height: 205px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    grid-area: articulo;
+
+    @media #{variables.$desktop} {
+        width: 666px;
+        height: auto;
+        // padding: 0px 163px;
+        margin: 100px 0 100px 163px;
+        align-items: flex-start;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        font-weight: variables.$fw700;
+
+        @media #{variables.$desktop} {
+            font-size: 2.2rem * 2.1;
+        }
+    }
+
+    p {
+        padding: 1em;
+        color: variables.$MediumGray;
+        text-align: center;
+        line-height: 1.5rem;
+
+        @media #{variables.$desktop} {
+            text-align: left;
+            font-size: variables.$fs * 1.2;
+            padding: 1em 5em 1em 0;
+            line-height: 1.5rem * 1.5;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        border: 1px solid;
+        border-radius: 1em;
+        padding: 15px 35px;
+        background-color: variables.$AlmostBlack;
+        color: variables.$AlmostWhite;
+        font-weight: variables.$fw700;
+
+        &:hover {
+            color: variables.$AlmostBlack;
+            background-color: variables.$AlmostWhite;
+            font-weight: variables.$fw700;
+        }
+    }
+}

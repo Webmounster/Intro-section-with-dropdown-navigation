@@ -1,0 +1,31 @@
+@use 'variables';
+@use 'mixins';
+.clients {
+    margin-top: -50px;
+    width: 100vw;
+    height: 25px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 10px;
+    padding: 0 15px;
+    align-items: flex-end;
+    grid-area: clients;
+
+    @media #{variables.$desktop} {
+        width: 666px;
+        margin: 0px 0 0px 163px;
+    }
+
+    .client-databiz {
+        @include mixins.client('../images/client-databiz.svg');
+    }
+    .client-audiophile {
+        @include mixins.client('../images/client-audiophile.svg');
+    }
+    .client-meet {
+        @include mixins.client('../images/client-meet.svg');
+    }
+    .client-maker {
+        @include mixins.client('../images/client-maker.svg');
+    }
+}

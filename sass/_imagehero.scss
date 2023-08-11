@@ -1,0 +1,27 @@
+@use 'variables';
+.imagen {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    grid-area: imagen;
+
+    @media #{variables.$desktop} {
+        justify-content: flex-start;
+        margin-right: 100px;
+    }
+}
+.image-hero {
+    width: 375px;
+    height: 281px;
+    background-image: url('../images/image-hero-mobile.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @media #{variables.$desktop} {
+        width: 480px;
+        height: 640px;
+        background-image: url('../images/image-hero-desktop.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+}

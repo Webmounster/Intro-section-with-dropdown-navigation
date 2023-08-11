@@ -1,0 +1,168 @@
+@use 'variables';
+@use 'mixins';
+header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    height: 27px;
+    padding: 23px 16px 0px 23px;
+    grid-area: header;
+
+    @media #{variables.$desktop} {
+        height: 40px;
+        margin: 30px 40px;
+        align-items: center;
+    }
+
+    .icon-menu {
+        cursor: pointer;
+        z-index: 100;
+        width: 32px;
+        height: 32px;
+        background-image: url(../images/icon-menu.svg);
+        background-repeat: no-repeat;
+
+        @media #{variables.$desktop} {
+            display: none;
+        }
+    }
+
+    .navbar {
+        background-color: #fff;
+        color: variables.$MediumGray;
+        width: 240px;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        right: -300px;
+        padding: 80px 23px;
+        z-index: 10;
+        display: block;
+        transition: transform 1s ease;
+
+        @media #{variables.$desktop} {
+            background-color: transparent;
+            width: 100%;
+            top: 0px;
+            right: 0px;
+            height: 40px;
+            padding: 0 60px;
+            z-index: 0;
+
+            .nav {
+                display: flex;
+                width: 90%;
+                float: right;
+                justify-content: space-between;
+            }
+        }
+
+        &.cambio {
+            transform: translateX(-300px);
+        }
+
+        li {
+            width: 100px;
+
+            @media #{variables.$desktop} {
+                width: 100px;
+                height: 100%;
+                margin-right: 20px;
+            }
+        }
+
+        .dropdown-menu {
+            list-style-type: none;
+            margin-bottom: 40px;
+            @media #{variables.$desktop} {
+                display: inline-flex;
+                margin-bottom: 0px;
+            }
+
+            .menu-item {
+                margin-bottom: 28px;
+                @media #{variables.$desktop} {
+                    margin-top: 10px;
+                }
+                &:hover {
+                    color: variables.$AlmostBlack;
+                    font-weight: variables.$fw700;
+                }
+                a {
+                    color: variables.$MediumGray;
+                    text-decoration: none;
+                    &:hover {
+                        color: variables.$AlmostBlack;
+                        font-weight: variables.$fw700;
+                    }
+                }
+            }
+
+            .features {
+                position: relative;
+                cursor: pointer;
+                &::after {
+                    @include mixins.after;
+                }
+
+                &.active::after {
+                    @include mixins.active-after;
+                }
+                .dropdown-features {
+                    @include mixins.submenus;
+                }
+            }
+
+            .company {
+                position: relative;
+                cursor: pointer;
+                &::after {
+                    @include mixins.after;
+                }
+
+                &.active::after {
+                    @include mixins.active-after;
+                }
+                .dropdown-company {
+                    @include mixins.submenus;
+                }
+            }
+        }
+
+        .login {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+
+            @media #{variables.$desktop} {
+                flex-direction: row;
+                float: right;
+            }
+
+            span:hover {
+                cursor: pointer;
+                color: variables.$AlmostBlack;
+                font-weight: variables.$fw700;
+            }
+
+            .a-login {
+                width: 100%;
+                border: 1px solid variables.$MediumGray;
+                border-radius: 12px;
+                background-color: transparent;
+                padding: 15px;
+                text-align: center;
+                text-decoration: none;
+                color: variables.$MediumGray;
+
+                &:hover {
+                    border: 1px solid variables.$AlmostBlack;
+                    color: variables.$AlmostBlack;
+                    font-weight: variables.$fw700;
+                }
+            }
+        }
+    }
+}
